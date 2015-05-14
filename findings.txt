@@ -1,0 +1,24 @@
+Analysis of a compiler
+Janelle Flaherty
+
+Identify which files/functions are responsible for each phase in the compiler source (scan/lex/tokenize, parse, AST, optimization, code generation).
+What was the most ridiculous thing you found? (funny comments? awful code?)
+
+
+
+I analyzed OpenJDK (Compiler and runtime for Java).
+
+It appears that jdk7u-jdk/src/share/classes/sun/tools/java/Parser.java is responsible for parsing the java code. 
+
+jdk7u-jdk/src/share/classes/java/io/StreamTokenizer.java, appears to be responsible for tokenizing java code.
+
+jdk7u-jdk/src/share/classes/sun/reflect/generics/repository/AbstractRepository.java, is responsible for AST.
+
+jdk7u-jdk/make/sun/jpeg/Makefile, appears to responsible for optimization
+OPTIMIZATION_LEVEL = HIGHEST
+
+jdk7u-jdk/src/share/classes/sun/tools/tree/UnaryExpression.java appears to be responsible for generating code.
+
+Notes: I didn’t find anything outright awful as far as the code went. There were a lot of hacked methods etc, with messages attached like “fix this in the future”, or, “This is the best way for now, but it really should be fixed..” However, this is pretty typical with any development. As it grow larger, you run into components that are dependent on one another and have to wait for one to be fixed before you can fix another.
+
+
