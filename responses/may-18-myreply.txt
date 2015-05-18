@@ -1,0 +1,6 @@
+What does it mean for two sets to be disjoint?
+Neither element shares an element between them
+
+
+What is the union of two sets?
+the union are all elements shared between two sets.
